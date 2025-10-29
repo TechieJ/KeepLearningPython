@@ -99,3 +99,6 @@ player.inventory.show_inventory()
 player.use_potion("restore health")
 player.attack()
 player.inventory.show_inventory()
+
+print(player)
+print(sword)
