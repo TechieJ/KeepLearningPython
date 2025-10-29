@@ -1,3 +1,8 @@
+"""
+
+Exercise 4: Stock Portfolio — Operator Overloading & Rich Comparisons
+
+"""
 class Stock:
 
     def __init__(self, symbol, quantity, price_per_share):

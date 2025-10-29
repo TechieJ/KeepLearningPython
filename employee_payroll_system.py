@@ -1,3 +1,6 @@
+"""
+Exercise 1 — class understanding
+"""
 class Employee:
     company_name = "MyCompany"
 

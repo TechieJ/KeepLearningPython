@@ -1,3 +1,8 @@
+"""
+Exercise 3 — Abstract Classes & Polymorphism.
+"""
+
+
 from abc import ABC, abstractmethod
 
 

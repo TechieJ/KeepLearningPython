@@ -1,3 +1,7 @@
+"""
+Exercise 2 — understanding of Composition vs Inheritance
+"""
+
 class Item:
 
     def __init__(self, name, weight, value):
