@@ -2,6 +2,7 @@
 Exercise 5: Multiple Inheritance & MRO
 """
 
+
 class BaseDevices:
     def status(self):
         pass
