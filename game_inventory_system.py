@@ -8,17 +8,27 @@ class Item:
     def __str__(self):
         return f"name: {self.name}, weight: {self.weight}, value: {self.value}"
 
+    def describe(self):
+        return f"{self.name} (W:{self.weight}, V:{self.value})"
+
 
 class Weapon(Item):
+
     def __init__(self, name, weight, value, damage):
         self.damage = damage
         super().__init__(name, weight, value)
+
+    def describe(self):
+        return f"{super().describe()}, Damage: {self.damage}"
 
 
 class Potion(Item):
     def __init__(self, name, weight, value, effect):
         self.effect = effect
         super().__init__(name, weight, value)
+
+    def describe(self):
+        return f"{super().describe()}, Effect: {self.effect}"
 
 
 class Inventory:
@@ -45,12 +55,7 @@ class Inventory:
 
     def show_inventory(self):
         for item in self.items:
-            if isinstance(item, Weapon):
-                print(f"item name: {item.name}, item weight: {item.weight}, "
-                      f"item value: {item.value}, item damage: {item.damage}")
-            if isinstance(item, Potion):
-                print(f"item name: {item.name}, item weight: {item.weight}, "
-                      f"item value: {item.value}, item effect: {item.effect}")
+            print(item.describe())
 
 
 class Player:
@@ -65,14 +70,20 @@ class Player:
 
     def use_potion(self, effect):
         for item in self.inventory.items:
-            if isinstance(item, Potion):
-                if item.effect == effect:
-                    self.inventory.remove_item(item)
+            if isinstance(item, Potion) and item.effect == effect:
+                print(f"{self.name} used {item.name} and {item.effect}")
+                self.inventory.remove_item(item)
+                return True
+        print(f"No potion with effect '{effect}' found")
+        return False
 
     def attack(self):
         for item in self.inventory.items:
             if isinstance(item, Weapon):
                 print(f"Item damage: {item.damage}")
+
+    def __str__(self):
+        return f"Player: {self.name} | Health: {self.health} | Inventory Items: {len(self.inventory.items)}"
 
 
 sword = Weapon("Iron Sword", 10, 150, 35)
