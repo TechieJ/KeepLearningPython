@@ -2,6 +2,9 @@
 Exercise 8 — Interface Segregation & Mixin Pattern
 Mixins let you compose behavior in small, reusable chunks.
 They avoid deep inheritance chains and follow Interface Segregation — classes only inherit what they need.
+Mixins should be stateless, modular, and independent.
+They exist only to extend functionality, not define object identity or hold core data.
+You never instantiate them, never rely on subclass attributes, and never cram unrelated methods together.
 """
 class WiFiMixin:
     def connect_wifi(self):
